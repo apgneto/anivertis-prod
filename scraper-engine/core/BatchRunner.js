@@ -1,5 +1,4 @@
-// collectors/BatchRunner.js
-const SourceRunner = require('./SourceRunner');
+const ScraperFactory = require('./ScraperFactory');
 
 class BatchRunner {
   constructor(sources) {
@@ -15,88 +14,40 @@ class BatchRunner {
 
   async runAll() {
     this.results.startTime = new Date();
-    
-    console.log('\n🚀 INICIANDO COLETA...\n');
+    console.log('\n🚀 INICIANDO COLETA ANIVERTIS...\n');
 
-    // 🔥 CORREÇÃO: Filtragem dinâmica baseada na Camada (Layer) real
-    // Adicionado fallback para layer 3 caso alguma fonte venha sem essa propriedade
     const tier1 = this.sources.filter(s => s.layer === 1);
     const tier2 = this.sources.filter(s => s.layer === 2);
-    const tier3 = this.sources.filter(s => s.layer === 3 || !s.layer); 
+    const tier3 = this.sources.filter(s => s.layer === 3 || !s.layer);
 
-    // Executar Tier 1 (prioridade máxima)
-    console.log(`🔴 TIER 1 - FONTES OFICIAIS (${tier1.length} fontes)`);
+    console.log(`🔴 TIER 1 - FONTES OFICIAIS (${tier1.length})`);
     await this.runBatch(tier1);
 
-    // Executar Tier 2
-    console.log(`\n🟡 TIER 2 - FONTES SETORIAIS (${tier2.length} fontes)`);
+    console.log(`\n🟡 TIER 2 - FONTES SETORIAIS (${tier2.length})`);
     await this.runBatch(tier2);
 
-    // Executar Tier 3
-    console.log(`\n🔵 TIER 3 - MÍDIA/RSS (${tier3.length} fontes)`);
+    console.log(`\n🔵 TIER 3 - NOTÍCIAS E PORTAIS (${tier3.length})`);
     await this.runBatch(tier3);
 
     this.results.endTime = new Date();
-    
-    this.printReport();
-    
-    return [...this.results.success, ...this.results.failed];
+    return this.results;
   }
 
   async runBatch(batch) {
-    for (const source of batch) {
+    const promises = batch.map(async (source) => {
       try {
-        const runner = new SourceRunner(source);
-        const data = await runner.run(); 
+        const scraper = ScraperFactory.create(source);
+        const data = await scraper.execute();
         
-        this.results.success.push({
-          sucesso: true,
-          sourceId: source.id,
-          sourceName: source.nome,
-          dados: data, 
-          score: source.score || 0,
-          layer: source.layer || 3,
-          theme: source.theme || 'geral'
-        });
-        
-        console.log(`✅ ${source.id}: ${source.nome}`);
-
+        const articles = Array.isArray(data) ? data : [data];
+        this.results.success.push({ source, articles });
+        console.log(`✅ ${source.nome}: ${articles.length} artigos`);
       } catch (error) {
-        this.results.failed.push({
-          sucesso: false,
-          sourceId: source.id,
-          sourceName: source.nome,
-          erro: error.message
-        });
-        
-        console.log(`❌ ${source.id}: ${source.nome} - ${error.message}`);
+        this.results.failed.push({ source, error: error.message });
+        console.log(`❌ ${source.nome}: ${error.message}`);
       }
-
-      // Pequena pausa entre requisições
-      await new Promise(resolve => setTimeout(resolve, 500));
-    }
-  }
-
-  printReport() {
-    const elapsed = (this.results.endTime - this.results.startTime) / 1000;
-    
-    console.log('\n' + '='.repeat(60));
-    console.log('📊 RELATÓRIO DE COLETA');
-    console.log('='.repeat(60));
-    console.log(`\n⏱️  Tempo total: ${elapsed.toFixed(1)}s`);
-    console.log(`📦 Total de fontes: ${this.results.total}`);
-    console.log(`✅ Sucesso: ${this.results.success.length}`);
-    console.log(`❌ Falhas: ${this.results.failed.length}`);
-    console.log(`📈 Taxa de sucesso: ${((this.results.success.length / this.results.total) * 100).toFixed(1)}%`);
-    
-    if (this.results.failed.length > 0) {
-      console.log('\n❌ FONTES COM FALHA:');
-      this.results.failed.forEach(f => {
-        console.log(`   - ${f.sourceName}: ${f.erro}`);
-      });
-    }
-    
-    console.log('\n' + '='.repeat(60) + '\n');
+    });
+    await Promise.all(promises);
   }
 }
 

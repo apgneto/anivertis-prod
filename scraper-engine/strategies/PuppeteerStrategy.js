@@ -88,10 +88,11 @@ class PuppeteerStrategy {
         try {
           await browser.close();
         } catch (e) {
-          // Ignora o erro EPERM de limpeza de pasta temporária
           console.log(`📌 Navegador fechado (limpeza pendente pelo sistema).`);
         }
       }
     }
+  }
+}
 
 module.exports = PuppeteerStrategy;

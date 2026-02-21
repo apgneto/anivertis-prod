@@ -1,5 +1,6 @@
 node_modules/
 data/*.db
 .env
-*.log.next/ 
-*.tsbuildinfo 
+*.log
+.next/
+*.tsbuildinfo

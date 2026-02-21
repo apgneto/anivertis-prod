@@ -1,0 +1,1043 @@
+[
+  {
+    "id": "1",
+    "nome": "CEPEA/ESALQ - Indicadores",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.cepea.esalq.usp.br/br/indicador/soja.aspx",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 223,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:40.990Z"
+    }
+  },
+  {
+    "id": "2",
+    "nome": "B3/CBOT - Futuros",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.b3.com.br/pt_br/produtos-e-servicos/negociacao/commodities/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Commodities | B3...\"",
+      "tempo_resposta_ms": 111,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:41.124Z"
+    }
+  },
+  {
+    "id": "3",
+    "nome": "CONAB - Safras",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.conab.gov.br/info-agro/safras",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Home — Companhia Nacional de A...\"",
+      "tempo_resposta_ms": 280,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:41.435Z"
+    }
+  },
+  {
+    "id": "4",
+    "nome": "USDA WASDE",
+    "tipo": "PDF",
+    "url_teste": "https://www.usda.gov/oce/commodity/wasde",
+    "usar_puppeteer": true,
+    "status": {
+      "http": null,
+      "mensagem": "timeout of 15000ms exceeded",
+      "tempo_resposta_ms": 15017,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:56.452Z"
+    }
+  },
+  {
+    "id": "5",
+    "nome": "USDA PSD",
+    "tipo": "API",
+    "url_teste": "https://apps.fas.usda.gov/psdonline/app/index.html",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 791,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.244Z"
+    }
+  },
+  {
+    "id": "6",
+    "nome": "IBGE - Abate",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/74/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 124,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.368Z"
+    }
+  },
+  {
+    "id": "7",
+    "nome": "IBGE - Rebanhos",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/3939/n1/all/v/105/p/last%201",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 32,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.400Z"
+    }
+  },
+  {
+    "id": "8",
+    "nome": "IBGE - Safra Municipal",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/5457/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 38,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.438Z"
+    }
+  },
+  {
+    "id": "9",
+    "nome": "IBGE - Valor Produção",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/6588/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 39,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.477Z"
+    }
+  },
+  {
+    "id": "10",
+    "nome": "IBGE - Pintos",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/1094/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 39,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.516Z"
+    }
+  },
+  {
+    "id": "11",
+    "nome": "IBGE - Indústria",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/1848/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 52,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.568Z"
+    }
+  },
+  {
+    "id": "12",
+    "nome": "MAPA SIF",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.gov.br/agricultura/pt-br/assuntos/inspecao/produtos-animal/sif",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Serviço de Inspeção Federal (S...\"",
+      "tempo_resposta_ms": 135,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:57.770Z"
+    }
+  },
+  {
+    "id": "13",
+    "nome": "MAPA SIPEAGRO",
+    "tipo": "SCRAPING",
+    "url_teste": "https://sistemasweb.agricultura.gov.br/sipeagro/consultar",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"MAPA - Ministério da Agricultu...\"",
+      "tempo_resposta_ms": 799,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:58.580Z"
+    }
+  },
+  {
+    "id": "14",
+    "nome": "ANP Biodiesel",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/producao-de-biocombustiveis",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Produção de biocombustíveis — ...\"",
+      "tempo_resposta_ms": 69,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:58.699Z"
+    }
+  },
+  {
+    "id": "15",
+    "nome": "BCB Selic",
+    "tipo": "API",
+    "url_teste": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 126,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:58.825Z"
+    }
+  },
+  {
+    "id": "16",
+    "nome": "BCB IPCA",
+    "tipo": "API",
+    "url_teste": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 90,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:58.915Z"
+    }
+  },
+  {
+    "id": "17",
+    "nome": "BCB Dólar",
+    "tipo": "API",
+    "url_teste": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.3698/dados/ultimos/1",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Acesso OK",
+      "tempo_resposta_ms": 45,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:58.961Z"
+    }
+  },
+  {
+    "id": "18",
+    "nome": "SECEX Comex",
+    "tipo": "SCRAPING",
+    "url_teste": "http://comexstat.mdic.gov.br/pt/geral",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"...\"",
+      "tempo_resposta_ms": 221,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:59.247Z"
+    }
+  },
+  {
+    "id": "19",
+    "nome": "MPA Pesca",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.gov.br/mpa/pt-br",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"MPA — Ministério da Pesca e Aq...\"",
+      "tempo_resposta_ms": 41,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:55:59.311Z"
+    }
+  },
+  {
+    "id": "20",
+    "nome": "EMBRAPA CIAS",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.embrapa.br/suinos-e-aves/cias",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Central de Inteligência de Ave...\"",
+      "tempo_resposta_ms": 2002,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:01.323Z"
+    }
+  },
+  {
+    "id": "21",
+    "nome": "FGV IGPM",
+    "tipo": "SCRAPING",
+    "url_teste": "https://portal.fgv.br/noticias",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"FGV Notícias | Portal FGV...\"",
+      "tempo_resposta_ms": 296,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:01.628Z"
+    }
+  },
+  {
+    "id": "22",
+    "nome": "FAO",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.fao.org/fishery/en/statistics",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"FAO Fisheries & Aquaculture...\"",
+      "tempo_resposta_ms": 1244,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:02.873Z"
+    }
+  },
+  {
+    "id": "23",
+    "nome": "IFA Fertilizantes",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.ifastat.org/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"IFASTAT | Loading......\"",
+      "tempo_resposta_ms": 1037,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:03.911Z"
+    }
+  },
+  {
+    "id": "24",
+    "nome": "ABIOVE",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abiove.org.br/estatisticas/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Estatísticas - Abiove...\"",
+      "tempo_resposta_ms": 1585,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:05.509Z"
+    }
+  },
+  {
+    "id": "25",
+    "nome": "StoneX",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.stonex.com/br/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 138,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:05.648Z"
+    }
+  },
+  {
+    "id": "26",
+    "nome": "Safras e Mercado",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.safras.com.br/",
+    "usar_puppeteer": false,
+    "ignorar_ssl": true,
+    "status": {
+      "http": null,
+      "mensagem": "unable to verify the first certificate; if the root CA is installed locally, try running Node.js with --use-system-ca",
+      "tempo_resposta_ms": 455,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:06.104Z"
+    }
+  },
+  {
+    "id": "27",
+    "nome": "DATAGRO",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.datagro.com/br/noticias",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"noticias – DATAGRO – Consultor...\"",
+      "tempo_resposta_ms": 1434,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:07.543Z"
+    }
+  },
+  {
+    "id": "28",
+    "nome": "ANEC",
+    "tipo": "SCRAPING",
+    "url_teste": "https://anec.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"...\"",
+      "tempo_resposta_ms": 1574,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:09.224Z"
+    }
+  },
+  {
+    "id": "29",
+    "nome": "Rabobank",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.rabobank.com.br/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 1214,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:10.438Z"
+    }
+  },
+  {
+    "id": "30",
+    "nome": "Scot Consultoria",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.scotconsultoria.com.br/cotacoes/couro-e-sebo/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Scot Consultoria...\"",
+      "tempo_resposta_ms": 124,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:10.587Z"
+    }
+  },
+  {
+    "id": "31",
+    "nome": "S&P Global",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.spglobal.com/commodityinsights/pt",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 181,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:10.769Z"
+    }
+  },
+  {
+    "id": "32",
+    "nome": "ABIEC",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.abiec.com.br/exportacoes/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"EXPORTAÇÕES – ABIEC...\"",
+      "tempo_resposta_ms": 174,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:10.959Z"
+    }
+  },
+  {
+    "id": "33",
+    "nome": "ABPA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abpa-br.org/mercados/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Mercados Archives - ABPA...\"",
+      "tempo_resposta_ms": 226,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:11.585Z"
+    }
+  },
+  {
+    "id": "34",
+    "nome": "ABRA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abra.org.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"ABRA – Academia Brasileira de ...\"",
+      "tempo_resposta_ms": 745,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:12.348Z"
+    }
+  },
+  {
+    "id": "35",
+    "nome": "ANDA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://anda.org.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"ANDA - Há 57 anos promovendo e...\"",
+      "tempo_resposta_ms": 2679,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:15.035Z"
+    }
+  },
+  {
+    "id": "36",
+    "nome": "SINDIRAÇÕES",
+    "tipo": "SCRAPING",
+    "url_teste": "https://sindiracoes.org.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"SINDIRAÇÕES - Sindicato Nacion...\"",
+      "tempo_resposta_ms": 831,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:15.923Z"
+    }
+  },
+  {
+    "id": "37",
+    "nome": "ABINPET",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abinpet.org.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"ABEMPET | Home...\"",
+      "tempo_resposta_ms": 3676,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:19.616Z"
+    }
+  },
+  {
+    "id": "38",
+    "nome": "Peixe BR",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.peixebr.com.br/anuario/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Anuário 2023 - PeixeBR...\"",
+      "tempo_resposta_ms": 2706,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:22.365Z"
+    }
+  },
+  {
+    "id": "39",
+    "nome": "IFC Brasil",
+    "tipo": "SCRAPING",
+    "url_teste": "https://ifcbrasil.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"International Fish Congress & ...\"",
+      "tempo_resposta_ms": 230,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:22.607Z"
+    }
+  },
+  {
+    "id": "40",
+    "nome": "Fastmarkets",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.fastmarkets.com/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Commodity price data, forecast...\"",
+      "tempo_resposta_ms": 82,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:22.704Z"
+    }
+  },
+  {
+    "id": "41",
+    "nome": "Argus",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.argusmedia.com/pt",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Preços de commodities, previsõ...\"",
+      "tempo_resposta_ms": 1315,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:24.051Z"
+    }
+  },
+  {
+    "id": "42",
+    "nome": "Ubrabio",
+    "tipo": "SCRAPING",
+    "url_teste": "https://ubrabio.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Home - Ubrabio...\"",
+      "tempo_resposta_ms": 3289,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:27.365Z"
+    }
+  },
+  {
+    "id": "43",
+    "nome": "Aprobio",
+    "tipo": "SCRAPING",
+    "url_teste": "https://aprobio.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"HOME - APROBIO - Associação do...\"",
+      "tempo_resposta_ms": 210,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:27.588Z"
+    }
+  },
+  {
+    "id": "44",
+    "nome": "Itaú BBA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.itau.com.br/itaubba-pt/analises-economicas/agro",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 139,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:27.727Z"
+    }
+  },
+  {
+    "id": "45",
+    "nome": "Valor Data",
+    "tipo": "SCRAPING",
+    "url_teste": "https://valor.globo.com/valor-data/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Dólar hoje e outros indicadore...\"",
+      "tempo_resposta_ms": 202,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:28.048Z"
+    }
+  },
+  {
+    "id": "46",
+    "nome": "ABISA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abisa.com.br/cotacoes/cotacoes-2026",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Cotações 2026 - Abisa...\"",
+      "tempo_resposta_ms": 561,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:28.622Z"
+    }
+  },
+  {
+    "id": "47",
+    "nome": "Editora Stilo",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.editorastilo.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Editora Stilo - Portal de notí...\"",
+      "tempo_resposta_ms": 6532,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:35.184Z"
+    }
+  },
+  {
+    "id": "48",
+    "nome": "UNEM",
+    "tipo": "SCRAPING",
+    "url_teste": "https://etanoldemilho.com.br/dados-setoriais/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Dados Setoriais | UNEM...\"",
+      "tempo_resposta_ms": 950,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:36.146Z"
+    }
+  },
+  {
+    "id": "49",
+    "nome": "Reuters",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.reuters.com/business/healthcare-pharmaceuticals/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 401,
+      "mensagem": "Status 401",
+      "tempo_resposta_ms": 86,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:36.232Z"
+    }
+  },
+  {
+    "id": "50",
+    "nome": "Broadcast",
+    "tipo": "SCRAPING",
+    "url_teste": "https://economia.uol.com.br/noticias/ae/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 95,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:36.327Z"
+    }
+  },
+  {
+    "id": "51",
+    "nome": "Notícias Agrícolas",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.noticiasagricolas.com.br/noticias",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Notícias - Notícias Agrícolas...\"",
+      "tempo_resposta_ms": 302,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:36.657Z"
+    }
+  },
+  {
+    "id": "52",
+    "nome": "Canal Rural",
+    "tipo": "RSS",
+    "url_teste": "https://www.canalrural.com.br/feed/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "RSS OK",
+      "tempo_resposta_ms": 90,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:36.747Z"
+    }
+  },
+  {
+    "id": "53",
+    "nome": "Globo Rural",
+    "tipo": "SCRAPING",
+    "url_teste": "https://globorural.globo.com/",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Globo Rural | O agro de ponta ...\"",
+      "tempo_resposta_ms": 233,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:37.109Z"
+    }
+  },
+  {
+    "id": "54",
+    "nome": "Agrolink",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.agrolink.com.br/noticias/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"AGROLINK - Todos jornais com t...\"",
+      "tempo_resposta_ms": 427,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:37.562Z"
+    }
+  },
+  {
+    "id": "55",
+    "nome": "Money Times",
+    "tipo": "RSS",
+    "url_teste": "https://www.moneytimes.com.br/feed/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "RSS OK",
+      "tempo_resposta_ms": 86,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:37.648Z"
+    }
+  },
+  {
+    "id": "56",
+    "nome": "Farmnews",
+    "tipo": "RSS",
+    "url_teste": "https://farmnews.com.br/feed/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "RSS OK",
+      "tempo_resposta_ms": 302,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:37.950Z"
+    }
+  },
+  {
+    "id": "57",
+    "nome": "Valor Econômico",
+    "tipo": "SCRAPING",
+    "url_teste": "https://valor.globo.com/agronegocios/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Agronegócios | Valor Econômico...\"",
+      "tempo_resposta_ms": 196,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:38.190Z"
+    }
+  },
+  {
+    "id": "58",
+    "nome": "Portal DBO",
+    "tipo": "RSS",
+    "url_teste": "https://www.portaldbo.com.br/feed/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "RSS OK",
+      "tempo_resposta_ms": 409,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:38.599Z"
+    }
+  },
+  {
+    "id": "59",
+    "nome": "Suinocultura",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.suinoculturaindustrial.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Suinocultura Industrial...\"",
+      "tempo_resposta_ms": 1173,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:39.796Z"
+    }
+  },
+  {
+    "id": "60",
+    "nome": "Seafood Brasil",
+    "tipo": "SCRAPING",
+    "url_teste": "https://seafoodbrasil.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Seafood Brasil...\"",
+      "tempo_resposta_ms": 1538,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:41.354Z"
+    }
+  },
+  {
+    "id": "61",
+    "nome": "Nutrinews",
+    "tipo": "SCRAPING",
+    "url_teste": "https://nutrinews.com/br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Brasil abre mercado para expor...\"",
+      "tempo_resposta_ms": 141,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:41.509Z"
+    }
+  },
+  {
+    "id": "62",
+    "nome": "Engormix",
+    "tipo": "SCRAPING",
+    "url_teste": "https://pt.engormix.com/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Engormix, maior comunidade agr...\"",
+      "tempo_resposta_ms": 951,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:42.479Z"
+    }
+  },
+  {
+    "id": "63",
+    "nome": "Feed Food",
+    "tipo": "SCRAPING",
+    "url_teste": "https://feedfood.com.br/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 806,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:43.285Z"
+    }
+  },
+  {
+    "id": "64",
+    "nome": "BiodieselBR",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.biodieselbr.com/",
+    "usar_puppeteer": false,
+    "status": {
+      "http": 200,
+      "mensagem": "Site carregado: \"Tudo sobre Biodiesel\n |  Biodi...\"",
+      "tempo_resposta_ms": 645,
+      "funcionando": true
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:43.946Z"
+    }
+  },
+  {
+    "id": "65",
+    "nome": "Bloomberg",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.bloomberg.com/markets/commodities",
+    "usar_puppeteer": true,
+    "status": {
+      "http": 403,
+      "mensagem": "Status 403",
+      "tempo_resposta_ms": 201,
+      "funcionando": false
+    },
+    "atualizacao": {
+      "ultima_coleta": "2026-02-12T20:56:44.147Z"
+    }
+  }
+]

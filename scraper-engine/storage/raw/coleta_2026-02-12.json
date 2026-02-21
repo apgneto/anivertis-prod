@@ -1,0 +1,333 @@
+{
+  "success": [
+    {
+      "id": "1",
+      "nome": "CEPEA/ESALQ - Indicadores",
+      "status": "success"
+    },
+    {
+      "id": "2",
+      "nome": "B3/CBOT - Futuros",
+      "status": "success"
+    },
+    {
+      "id": "3",
+      "nome": "CONAB - Safras",
+      "status": "success"
+    },
+    {
+      "id": "4",
+      "nome": "USDA WASDE",
+      "status": "success"
+    },
+    {
+      "id": "5",
+      "nome": "USDA PSD",
+      "status": "success"
+    },
+    {
+      "id": "6",
+      "nome": "IBGE - Abate",
+      "status": "success"
+    },
+    {
+      "id": "7",
+      "nome": "IBGE - Rebanhos",
+      "status": "success"
+    },
+    {
+      "id": "8",
+      "nome": "IBGE - Safra Municipal",
+      "status": "success"
+    },
+    {
+      "id": "9",
+      "nome": "IBGE - Valor Produção",
+      "status": "success"
+    },
+    {
+      "id": "10",
+      "nome": "IBGE - Pintos",
+      "status": "success"
+    },
+    {
+      "id": "11",
+      "nome": "IBGE - Indústria",
+      "status": "success"
+    },
+    {
+      "id": "12",
+      "nome": "MAPA SIF",
+      "status": "success"
+    },
+    {
+      "id": "13",
+      "nome": "MAPA SIPEAGRO",
+      "status": "success"
+    },
+    {
+      "id": "14",
+      "nome": "ANP Biodiesel",
+      "status": "success"
+    },
+    {
+      "id": "15",
+      "nome": "BCB Selic",
+      "status": "success"
+    },
+    {
+      "id": "16",
+      "nome": "BCB IPCA",
+      "status": "success"
+    },
+    {
+      "id": "17",
+      "nome": "BCB Dólar",
+      "status": "success"
+    },
+    {
+      "id": "18",
+      "nome": "SECEX Comex",
+      "status": "success"
+    },
+    {
+      "id": "19",
+      "nome": "MPA Pesca",
+      "status": "success"
+    },
+    {
+      "id": "20",
+      "nome": "EMBRAPA CIAS",
+      "status": "success"
+    },
+    {
+      "id": "21",
+      "nome": "FGV IGPM",
+      "status": "success"
+    },
+    {
+      "id": "22",
+      "nome": "FAO",
+      "status": "success"
+    },
+    {
+      "id": "23",
+      "nome": "IFA Fertilizantes",
+      "status": "success"
+    },
+    {
+      "id": "24",
+      "nome": "ABIOVE",
+      "status": "success"
+    },
+    {
+      "id": "25",
+      "nome": "StoneX",
+      "status": "success"
+    },
+    {
+      "id": "26",
+      "nome": "Safras e Mercado",
+      "status": "success"
+    },
+    {
+      "id": "27",
+      "nome": "DATAGRO",
+      "status": "success"
+    },
+    {
+      "id": "28",
+      "nome": "ANEC",
+      "status": "success"
+    },
+    {
+      "id": "29",
+      "nome": "Rabobank",
+      "status": "success"
+    },
+    {
+      "id": "30",
+      "nome": "Scot Consultoria",
+      "status": "success"
+    },
+    {
+      "id": "31",
+      "nome": "S&P Global",
+      "status": "success"
+    },
+    {
+      "id": "32",
+      "nome": "ABIEC",
+      "status": "success"
+    },
+    {
+      "id": "33",
+      "nome": "ABPA",
+      "status": "success"
+    },
+    {
+      "id": "34",
+      "nome": "ABRA",
+      "status": "success"
+    },
+    {
+      "id": "35",
+      "nome": "ANDA",
+      "status": "success"
+    },
+    {
+      "id": "36",
+      "nome": "SINDIRAÇÕES",
+      "status": "success"
+    },
+    {
+      "id": "37",
+      "nome": "ABINPET",
+      "status": "success"
+    },
+    {
+      "id": "38",
+      "nome": "Peixe BR",
+      "status": "success"
+    },
+    {
+      "id": "39",
+      "nome": "IFC Brasil",
+      "status": "success"
+    },
+    {
+      "id": "40",
+      "nome": "Fastmarkets",
+      "status": "success"
+    },
+    {
+      "id": "41",
+      "nome": "Argus",
+      "status": "success"
+    },
+    {
+      "id": "42",
+      "nome": "Ubrabio",
+      "status": "success"
+    },
+    {
+      "id": "43",
+      "nome": "Aprobio",
+      "status": "success"
+    },
+    {
+      "id": "44",
+      "nome": "Itaú BBA",
+      "status": "success"
+    },
+    {
+      "id": "45",
+      "nome": "Valor Data",
+      "status": "success"
+    },
+    {
+      "id": "46",
+      "nome": "ABISA",
+      "status": "success"
+    },
+    {
+      "id": "47",
+      "nome": "Editora Stilo",
+      "status": "success"
+    },
+    {
+      "id": "48",
+      "nome": "UNEM",
+      "status": "success"
+    },
+    {
+      "id": "49",
+      "nome": "Reuters",
+      "status": "success"
+    },
+    {
+      "id": "50",
+      "nome": "Broadcast",
+      "status": "success"
+    },
+    {
+      "id": "51",
+      "nome": "Notícias Agrícolas",
+      "status": "success"
+    },
+    {
+      "id": "52",
+      "nome": "Canal Rural",
+      "status": "success"
+    },
+    {
+      "id": "53",
+      "nome": "Globo Rural",
+      "status": "success"
+    },
+    {
+      "id": "54",
+      "nome": "Agrolink",
+      "status": "success"
+    },
+    {
+      "id": "55",
+      "nome": "Money Times",
+      "status": "success"
+    },
+    {
+      "id": "56",
+      "nome": "Farmnews",
+      "status": "success"
+    },
+    {
+      "id": "57",
+      "nome": "Valor Econômico",
+      "status": "success"
+    },
+    {
+      "id": "58",
+      "nome": "Portal DBO",
+      "status": "success"
+    },
+    {
+      "id": "59",
+      "nome": "Suinocultura",
+      "status": "success"
+    },
+    {
+      "id": "60",
+      "nome": "Seafood Brasil",
+      "status": "success"
+    },
+    {
+      "id": "61",
+      "nome": "Nutrinews",
+      "status": "success"
+    },
+    {
+      "id": "62",
+      "nome": "Engormix",
+      "status": "success"
+    },
+    {
+      "id": "63",
+      "nome": "Feed Food",
+      "status": "success"
+    },
+    {
+      "id": "64",
+      "nome": "BiodieselBR",
+      "status": "success"
+    },
+    {
+      "id": "65",
+      "nome": "Bloomberg",
+      "status": "success"
+    }
+  ],
+  "failed": [],
+  "total": 65,
+  "startTime": "2026-02-12T23:54:26.963Z",
+  "endTime": "2026-02-12T23:57:40.821Z"
+}

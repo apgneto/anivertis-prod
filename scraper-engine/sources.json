@@ -1,0 +1,92 @@
+[
+  {
+    "id": 1,
+    "nome": "CEPEA/ESALQ - Indicadores",
+    "url": "https://www.cepea.esalq.usp.br/br/indicador/soja.aspx",
+    "tipo": "html",
+    "layer": 1,
+    "tema": "soja",
+    "score": 10
+  },
+  {
+    "id": 2,
+    "nome": "B3/CBOT - Futuros",
+    "url": "https://www.b3.com.br/pt_br/produtos-e-servicos/negociacao/commodities/",
+    "tipo": "html",
+    "layer": 1,
+    "tema": "geral",
+    "score": 9
+  },
+  {
+    "id": 3,
+    "nome": "CONAB - Safras",
+    "url": "https://www.conab.gov.br/info-agro/safras",
+    "tipo": "html",
+    "layer": 1,
+    "tema": "graos",
+    "score": 9
+  },
+  {
+    "id": 4,
+    "nome": "USDA WASDE",
+    "url": "https://www.usda.gov/oce/commodity/wasde",
+    "tipo": "html",
+    "layer": 1,
+    "tema": "graos",
+    "score": 9
+  },
+  {
+    "id": 5,
+    "nome": "USDA PSD",
+    "url": "https://apps.fas.usda.gov/psdonline/app/index.html",
+    "tipo": "html",
+    "layer": 1,
+    "tema": "graos",
+    "score": 8
+  },
+  {
+    "id": 6,
+    "nome": "IBGE - Abate",
+    "url": "https://apisidra.ibge.gov.br/values/t/74/n1/all/v/all/p/last%201",
+    "tipo": "json",
+    "layer": 1,
+    "tema": "pecuaria",
+    "score": 8
+  },
+  {
+    "id": 7,
+    "nome": "IBGE - Rebanhos",
+    "url": "https://apisidra.ibge.gov.br/values/t/3939/n1/all/v/105/p/last%201",
+    "tipo": "json",
+    "layer": 1,
+    "tema": "pecuaria",
+    "score": 8
+  },
+  {
+    "id": 49,
+    "nome": "Reuters",
+    "url": "https://www.reuters.com/business/healthcare-pharmaceuticals/",
+    "tipo": "html",
+    "layer": 3,
+    "tema": "noticias",
+    "score": 7
+  },
+  {
+    "id": 50,
+    "nome": "Broadcast",
+    "url": "https://economia.uol.com.br/noticias/ae/",
+    "tipo": "html",
+    "layer": 3,
+    "tema": "noticias",
+    "score": 7
+  },
+  {
+    "id": 51,
+    "nome": "Not¡cias Agr¡colas",
+    "url": "https://www.noticiasagricolas.com.br/noticias",
+    "tipo": "html",
+    "layer": 3,
+    "tema": "noticias",
+    "score": 7
+  }
+]

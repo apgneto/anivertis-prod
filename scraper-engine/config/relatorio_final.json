@@ -1,0 +1,588 @@
+[
+  {
+    "id": "1",
+    "nome": "CEPEA/ESALQ - Indicadores",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.cepea.esalq.usp.br/br/indicator/soja.aspx",
+    "usar_puppeteer": true,
+    "layer": 1,
+    "theme": "SOJA"
+  },
+  {
+    "id": "2",
+    "nome": "B3/CBOT - Futuros",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.b3.com.br/pt_br/products-and-services/trading/commodities/",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "3",
+    "nome": "CONAB - Safras",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.conab.gov.br/info-agro/safras",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "4",
+    "nome": "USDA WASDE",
+    "tipo": "PDF",
+    "url_teste": "https://www.usda.gov/oce/commodity/wasde",
+    "usar_puppeteer": true,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "5",
+    "nome": "USDA PSD",
+    "tipo": "API",
+    "url_teste": "https://apps.fas.usda.gov/psdonline/app/index.html",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "6",
+    "nome": "IBGE - Abate",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/74/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "BOVINOCULTURA"
+  },
+  {
+    "id": "7",
+    "nome": "IBGE - Rebanhos",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/3939/n1/all/v/105/p/last%201",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "BOVINOCULTURA"
+  },
+  {
+    "id": "8",
+    "nome": "IBGE - Safra Municipal",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/5457/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "9",
+    "nome": "IBGE - Valor Produção",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/6588/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "10",
+    "nome": "IBGE - Pintos",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/1094/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "AVICULTURA"
+  },
+  {
+    "id": "11",
+    "nome": "IBGE - Indústria",
+    "tipo": "API",
+    "url_teste": "https://apisidra.ibge.gov.br/values/t/1848/n1/all/v/all/p/last%201",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "12",
+    "nome": "MAPA SIF",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.gov.br/agricultura/pt-br/assuntos/inspecao/produtos-animal/sif",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "RECICLAGEM ANIMAL"
+  },
+  {
+    "id": "13",
+    "nome": "MAPA SIPEAGRO",
+    "tipo": "SCRAPING",
+    "url_teste": "https://sistemasweb.agricultura.gov.br/sipeagro/consultar",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "RECICLAGEM ANIMAL"
+  },
+  {
+    "id": "14",
+    "nome": "ANP Biodiesel",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.gov.br/anp/pt-br/centrais-de-conteudo/dados-abertos/producao-de-biocombustiveis",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "BIODIESEL"
+  },
+  {
+    "id": "15",
+    "nome": "BCB Selic",
+    "tipo": "API",
+    "url_teste": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados/ultimos/1",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "16",
+    "nome": "BCB IPCA",
+    "tipo": "API",
+    "url_teste": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.433/dados/ultimos/1",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "17",
+    "nome": "BCB Dólar",
+    "tipo": "API",
+    "url_teste": "https://api.bcb.gov.br/dados/serie/bcdata.sgs.3698/dados/ultimos/1",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "18",
+    "nome": "SECEX Comex",
+    "tipo": "SCRAPING",
+    "url_teste": "http://comexstat.mdic.gov.br/pt/geral",
+    "usar_puppeteer": true,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "19",
+    "nome": "MPA Pesca",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.gov.br/mpa/pt-br",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "PISCICULTURA"
+  },
+  {
+    "id": "20",
+    "nome": "EMBRAPA CIAS",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.embrapa.br/suinos-e-aves/cias",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "SUINOCULTURA"
+  },
+  {
+    "id": "21",
+    "nome": "FGV IGPM",
+    "tipo": "SCRAPING",
+    "url_teste": "https://portal.fgv.br/noticias",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "22",
+    "nome": "FAO",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.fao.org/fishery/en/statistics",
+    "usar_puppeteer": false,
+    "layer": 1,
+    "theme": "PISCICULTURA"
+  },
+  {
+    "id": "23",
+    "nome": "IFA Fertilizantes",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.ifastat.org/",
+    "usar_puppeteer": true,
+    "layer": 1,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "24",
+    "nome": "ABIOVE",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abiove.org.br/estatisticas/",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "SOJA"
+  },
+  {
+    "id": "25",
+    "nome": "StoneX",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.stonex.com/br/",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "26",
+    "nome": "Safras e Mercado",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.safras.com.br/",
+    "usar_puppeteer": false,
+    "ignorar_ssl": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "27",
+    "nome": "DATAGRO",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.datagro.com/br/noticias",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "28",
+    "nome": "ANEC",
+    "tipo": "SCRAPING",
+    "url_teste": "https://anec.com.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "29",
+    "nome": "Rabobank",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.rabobank.com.br/",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "30",
+    "nome": "Scot Consultoria",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.scotconsultoria.com.br/cotacoes/couro-e-sebo/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "BOVINOCULTURA"
+  },
+  {
+    "id": "31",
+    "nome": "S&P Global",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.spglobal.com/commodityinsights/pt",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "32",
+    "nome": "ABIEC",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.abiec.com.br/exportacoes/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "BOVINOCULTURA"
+  },
+  {
+    "id": "33",
+    "nome": "ABPA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abpa-br.org/mercados/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "AVICULTURA"
+  },
+  {
+    "id": "34",
+    "nome": "ABRA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abra.org.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "RECICLAGEM ANIMAL"
+  },
+  {
+    "id": "35",
+    "nome": "ANDA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://anda.org.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "36",
+    "nome": "SINDIRAÇÕES",
+    "tipo": "SCRAPING",
+    "url_teste": "https://sindiracoes.org.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "RACOES_PET"
+  },
+  {
+    "id": "37",
+    "nome": "ABINPET",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abinpet.org.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "RACOES_PET"
+  },
+  {
+    "id": "38",
+    "nome": "Peixe BR",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.peixebr.com.br/anuario/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "PISCICULTURA"
+  },
+  {
+    "id": "39",
+    "nome": "IFC Brasil",
+    "tipo": "SCRAPING",
+    "url_teste": "https://ifcbrasil.com.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "PISCICULTURA"
+  },
+  {
+    "id": "40",
+    "nome": "Fastmarkets",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.fastmarkets.com/",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "41",
+    "nome": "Argus",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.argusmedia.com/pt",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "42",
+    "nome": "Ubrabio",
+    "tipo": "SCRAPING",
+    "url_teste": "https://ubrabio.com.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "BIODIESEL"
+  },
+  {
+    "id": "43",
+    "nome": "Aprobio",
+    "tipo": "SCRAPING",
+    "url_teste": "https://aprobio.com.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "BIODIESEL"
+  },
+  {
+    "id": "44",
+    "nome": "Itaú BBA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.itau.com.br/itaubba-pt/analises-economicas/agro",
+    "usar_puppeteer": true,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "45",
+    "nome": "Valor Data",
+    "tipo": "SCRAPING",
+    "url_teste": "https://valor.globo.com/valor-data/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "46",
+    "nome": "ABISA",
+    "tipo": "SCRAPING",
+    "url_teste": "https://abisa.com.br/cotacoes/cotacoes-2026",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "RECICLAGEM ANIMAL"
+  },
+  {
+    "id": "47",
+    "nome": "Editora Stilo",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.editorastilo.com.br/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "48",
+    "nome": "UNEM",
+    "tipo": "SCRAPING",
+    "url_teste": "https://etanoldemilho.com.br/dados-setoriais/",
+    "usar_puppeteer": false,
+    "layer": 2,
+    "theme": "MILHO"
+  },
+  {
+    "id": "49",
+    "nome": "Reuters",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.reuters.com/business/healthcare-pharmaceuticals/",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "50",
+    "nome": "Broadcast",
+    "tipo": "SCRAPING",
+    "url_teste": "https://economia.uol.com.br/noticias/ae/",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "51",
+    "nome": "Notícias Agrícolas",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.noticiasagricolas.com.br/noticias",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "52",
+    "nome": "Canal Rural",
+    "tipo": "RSS",
+    "url_teste": "https://www.canalrural.com.br/feed/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "53",
+    "nome": "Globo Rural",
+    "tipo": "SCRAPING",
+    "url_teste": "https://globorural.globo.com/",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "54",
+    "nome": "Agrolink",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.agrolink.com.br/noticias/",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "55",
+    "nome": "Money Times",
+    "tipo": "RSS",
+    "url_teste": "https://www.moneytimes.com.br/feed/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "56",
+    "nome": "Farmnews",
+    "tipo": "RSS",
+    "url_teste": "https://farmnews.com.br/feed/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "BOVINOCULTURA"
+  },
+  {
+    "id": "57",
+    "nome": "Valor Econômico",
+    "tipo": "SCRAPING",
+    "url_teste": "https://valor.globo.com/agronegocios/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "58",
+    "nome": "Portal DBO",
+    "tipo": "RSS",
+    "url_teste": "https://www.portaldbo.com.br/feed/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "BOVINOCULTURA"
+  },
+  {
+    "id": "59",
+    "nome": "Suinocultura",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.suinoculturaindustrial.com.br/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "SUINOCULTURA"
+  },
+  {
+    "id": "60",
+    "nome": "Seafood Brasil",
+    "tipo": "SCRAPING",
+    "url_teste": "https://seafoodbrasil.com.br/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "PISCICULTURA"
+  },
+  {
+    "id": "61",
+    "nome": "Nutrinews",
+    "tipo": "SCRAPING",
+    "url_teste": "https://nutrinews.com/br/",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "62",
+    "nome": "Engormix",
+    "tipo": "SCRAPING",
+    "url_teste": "https://pt.engormix.com/",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  },
+  {
+    "id": "63",
+    "nome": "Feed Food",
+    "tipo": "SCRAPING",
+    "url_teste": "https://feedfood.com.br/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "RACOES_PET"
+  },
+  {
+    "id": "64",
+    "nome": "BiodieselBR",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.biodieselbr.com/",
+    "usar_puppeteer": false,
+    "layer": 3,
+    "theme": "BIODIESEL"
+  },
+  {
+    "id": "65",
+    "nome": "Bloomberg",
+    "tipo": "SCRAPING",
+    "url_teste": "https://www.bloomberg.com/markets/commodities",
+    "usar_puppeteer": true,
+    "layer": 3,
+    "theme": "ECONOMIA"
+  }
+]

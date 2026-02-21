@@ -44,37 +44,55 @@ class BatchRunner {
   }
 
   async runBatch(batch) {
-    for (const source of batch) {
-      try {
-        const runner = new SourceRunner(source);
-        const data = await runner.run(); 
-        
-        this.results.success.push({
-          sucesso: true,
-          sourceId: source.id,
-          sourceName: source.nome,
-          dados: data, 
-          score: source.score || 0,
-          layer: source.layer || 3,
-          theme: source.theme || 'geral'
-        });
-        
-        console.log(`✅ ${source.id}: ${source.nome}`);
+    const CONCURRENCY = 3;
+    const queue = [...batch]; // Clone para não afetar o original
+    const workers = [];
 
-      } catch (error) {
-        this.results.failed.push({
-          sucesso: false,
-          sourceId: source.id,
-          sourceName: source.nome,
-          erro: error.message
-        });
-        
-        console.log(`❌ ${source.id}: ${source.nome} - ${error.message}`);
+    const worker = async (id) => {
+      while (queue.length > 0) {
+        const source = queue.shift();
+        if (!source) break;
+
+        try {
+          // console.log(`[Worker ${id}] Iniciando: ${source.nome}`);
+          const runner = new SourceRunner(source);
+          const data = await runner.run();
+
+          this.results.success.push({
+            sucesso: true,
+            sourceId: source.id,
+            sourceName: source.nome,
+            dados: data,
+            score: source.score || 0,
+            layer: source.layer || 3,
+            theme: (source.theme || 'geral').toUpperCase()
+          });
+
+          console.log(`✅ ${source.id}: ${source.nome}`);
+
+        } catch (error) {
+          this.results.failed.push({
+            sucesso: false,
+            sourceId: source.id,
+            sourceName: source.nome,
+            erro: error.message
+          });
+
+          console.log(`❌ ${source.id}: ${source.nome} - ${error.message}`);
+        }
+
+        // Pequena pausa entre requisições para evitar sobrecarga
+        await new Promise(resolve => setTimeout(resolve, 500));
       }
+    };
 
-      // Pequena pausa entre requisições
-      await new Promise(resolve => setTimeout(resolve, 500));
+    // Inicia os workers
+    for (let i = 0; i < CONCURRENCY; i++) {
+      workers.push(worker(i + 1));
     }
+
+    // Aguarda todos terminarem
+    await Promise.all(workers);
   }
 
   printReport() {

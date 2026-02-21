@@ -8,8 +8,8 @@ const DeepPuppeteerStrategy = require('../strategies/DeepPuppeteerStrategy');
 class ScraperFactory {
   static create(source) {
     // 🛡️ REGRA DE OURO: Fontes com bloqueio severo (403) ou zero links detectados
-    // Usamos DeepPuppeteer para Broadcast e Notícias Agrícolas
-    if (source.id === "50" || source.id === "51") {
+    // Usamos DeepPuppeteer para Reuters, Broadcast e Notícias Agrícolas
+    if (source.id === "49" || source.id === "50" || source.id === "51") {
       return new DeepPuppeteerStrategy(source);
     }
 

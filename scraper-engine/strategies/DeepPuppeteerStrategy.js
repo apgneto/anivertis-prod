@@ -20,10 +20,30 @@ class DeepPuppeteerStrategy {
         const seen = new Set();
         const blacklist = ['carnaval', 'splash', 'entretenimento', 'fofoca', 'anitta', 'bbb'];
 
-        document.querySelectorAll('article a, .noticia a, .materia a, h2 a, h3 a, .item a').forEach(el => {
+        // Seletores expandidos para Notícias Agrícolas (.horizontal, .com-hora), Broadcast (.thumb-caption, .manchete), Reuters (.story-card) e outros
+        const selectors = [
+          'article a',
+          '.noticia a',
+          '.materia a',
+          'h2 a',
+          'h3 a',
+          '.item a',
+          '.horizontal a',
+          '.com-hora a',
+          '.thumb-caption a',
+          '.manchete a',
+          '.chamada a',
+          '.box-noticia a',
+          'ul.noticias li a',
+          '[class*="story-card"] a', // Reuters
+          '[class*="media-story-card"] a' // Reuters
+        ];
+
+        document.querySelectorAll(selectors.join(', ')).forEach(el => {
           const title = el.innerText.trim().replace(/\s+/g, ' ');
           const href = el.href;
-          if (href && title.length > 30 && !seen.has(href) && !blacklist.some(w => href.toLowerCase().includes(w))) {
+          // Validação básica: link válido, título com tamanho mínimo e não duplicado
+          if (href && title.length > 20 && !seen.has(href) && !blacklist.some(w => href.toLowerCase().includes(w))) {
             seen.add(href);
             list.push({ title, url: href });
           }
@@ -34,23 +54,30 @@ class DeepPuppeteerStrategy {
       // 🔥 O DIFERENCIAL: Navega em cada matéria para extrair o conteúdo real
       const finalResults = [];
       for (const art of articles) {
-        console.log(`  🔍 Deep Reading: ${art.url}`);
-        await page.goto(art.url, { waitUntil: 'networkidle2', timeout: 30000 });
-        
-        const fullContent = await page.evaluate(() => {
-          // Remove scripts, styles e lixo visual para não poluir o banco
-          const scripts = document.querySelectorAll('script, style, nav, footer, aside');
-          scripts.forEach(s => s.remove());
-          return document.body.innerText.substring(0, 5000).replace(/\s+/g, ' ').trim();
-        });
+        try {
+          console.log(`  🔍 Deep Reading: ${art.url}`);
+          await page.goto(art.url, { waitUntil: 'networkidle2', timeout: 30000 });
 
-        finalResults.push({
-          title: art.title,
-          url: art.url,
-          content: fullContent,
-          timestamp: new Date().toISOString()
-        });
-        await new Promise(r => setTimeout(r, 2000)); // Delay humano
+          const fullContent = await page.evaluate(() => {
+            // Remove scripts, styles e lixo visual para não poluir o banco
+            const scripts = document.querySelectorAll('script, style, nav, footer, aside, iframe, .ad, .ads');
+            scripts.forEach(s => s.remove());
+            return document.body.innerText.substring(0, 5000).replace(/\s+/g, ' ').trim();
+          });
+
+          if (fullContent && fullContent.length > 100) {
+            finalResults.push({
+              title: art.title,
+              url: art.url,
+              content: fullContent,
+              timestamp: new Date().toISOString()
+            });
+          }
+          await new Promise(r => setTimeout(r, 3000)); // Delay humano aumentado para 3s para evitar bloqueio agressivo
+        } catch (innerError) {
+           console.error(`⚠️ Erro ao ler artigo ${art.url}: ${innerError.message}`);
+           // Continua para o próximo artigo mesmo com erro neste
+        }
       }
 
       await browser.close();

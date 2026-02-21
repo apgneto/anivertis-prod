@@ -1,38 +1,16 @@
-// core/ScraperFactory.js
 const AxiosStrategy = require('../strategies/AxiosStrategy');
 const PuppeteerStrategy = require('../strategies/PuppeteerStrategy');
 const RSSStrategy = require('../strategies/RSSStrategy');
-const PDFStrategy = require('../strategies/PDFStrategy');
-const DeepPuppeteerStrategy = require('../strategies/DeepPuppeteerStrategy');
 
 class ScraperFactory {
   static create(source) {
-    // 🛡️ REGRA DE OURO: Fontes com bloqueio severo (403) ou zero links detectados
-    // Usamos DeepPuppeteer para Broadcast e Notícias Agrícolas
-    if (source.id === "50" || source.id === "51") {
-      return new DeepPuppeteerStrategy(source);
-    }
-
-    // 1. RSS
-    if (source.tipo === "RSS") {
-      return new RSSStrategy(source);
-    }
-
-    // 2. Puppeteer para sites com proteção Cloudflare ou JS dinâmico
-    if (
-      source.status?.http === 403 ||
-      source.status?.http === 401 ||
-      source.usar_puppeteer === true
-    ) {
-      return new PuppeteerStrategy(source);
-    }
-
-    // 3. PDFs
-    if (source.tipo === "PDF") {
-      return new PDFStrategy(source);
-    }
-
-    // 4. Padrão: Axios (Mais rápido e leve)
+    // 1. Prioridade absoluta para RSS (mais rápido)
+    if (source.tipo === 'RSS') return new RSSStrategy(source);
+    
+    // 2. Se o usuário marcou para usar o navegador real no JSON
+    if (source.usar_puppeteer) return new PuppeteerStrategy(source);
+    
+    // 3. Fallback para Axios (mais leve, para sites sem bloqueio)
     return new AxiosStrategy(source);
   }
 }

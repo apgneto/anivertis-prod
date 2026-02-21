@@ -445,29 +445,137 @@
     "id": "50",
     "nome": "Broadcast",
     "tipo": "SCRAPING",
-    "url_teste": "https://economia.uol.com.br/noticias/ae/",
+    "url_teste": "https://economia.uol.com.br/noticias/",
     "usar_puppeteer": true,
     "layer": 3,
     "theme": "ECONOMIA"
   },
-  {
-    "id": "51",
-    "nome": "Notícias Agrícolas",
-    "tipo": "SCRAPING",
-    "url_teste": "https://www.noticiasagricolas.com.br/noticias",
-    "usar_puppeteer": true,
-    "layer": 3,
-    "theme": "ECONOMIA"
-  },
-  {
-    "id": "52",
-    "nome": "Canal Rural",
-    "tipo": "RSS",
-    "url_teste": "https://www.canalrural.com.br/feed/",
-    "usar_puppeteer": false,
-    "layer": 3,
-    "theme": "ECONOMIA"
-  },
+ {
+  "id": "51a",
+  "nome": "Notícias Agrícolas - Agronegócio",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/agronegocio/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "NOTICIAS"
+},
+{
+  "id": "51b",
+  "nome": "Notícias Agrícolas - Biocombustível",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/biocombustivel/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "BIODIESEL"
+},
+{
+  "id": "51c",
+  "nome": "Notícias Agrícolas - Boi",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/boi/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "51d",
+  "nome": "Notícias Agrícolas - Carnes",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/carnes/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "51e",
+  "nome": "Notícias Agrícolas - Clima",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/clima/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "NOTICIAS"
+},
+{
+  "id": "51f",
+  "nome": "Notícias Agrícolas - Grãos",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/graos/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "ECONOMIA"
+},
+{
+  "id": "51g",
+  "nome": "Notícias Agrícolas - Milho",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/milho/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "MILHO"
+},
+{
+  "id": "51h",
+  "nome": "Notícias Agrícolas - Soja",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.noticiasagricolas.com.br/noticias/soja/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "SOJA"
+},
+{
+  "id": "52a",
+  "nome": "Canal Rural - Pecuária",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.canalrural.com.br/pecuaria/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "52b",
+  "nome": "Canal Rural - Agricultura",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.canalrural.com.br/agricultura/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "NOTICIAS"
+},
+{
+  "id": "52c",
+  "nome": "Canal Rural - Soja",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.canalrural.com.br/agricultura/projeto-soja-brasil/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "SOJA"
+},
+{
+  "id": "52d",
+  "nome": "Canal Rural - Aves e Suínos",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.canalrural.com.br/aves-e-suinos/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "AVICULTURA"
+},
+{
+  "id": "52e",
+  "nome": "Canal Rural - Economia",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.canalrural.com.br/economia/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "ECONOMIA"
+},
+{
+  "id": "52f",
+  "nome": "Canal Rural - Sustentabilidade",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.canalrural.com.br/sustentabilidade/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "RECICLAGEM"
+},
   {
     "id": "53",
     "nome": "Globo Rural",
@@ -478,23 +586,86 @@
     "theme": "ECONOMIA"
   },
   {
-    "id": "54",
-    "nome": "Agrolink",
-    "tipo": "SCRAPING",
-    "url_teste": "https://www.agrolink.com.br/noticias/",
-    "usar_puppeteer": true,
-    "layer": 3,
-    "theme": "ECONOMIA"
-  },
+  "id": "54a",
+  "nome": "Agrolink - Notícias",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/noticias/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "NOTICIAS"
+},
+{
+  "id": "54b",
+  "nome": "Agrolink - Soja",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/culturas/soja/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "SOJA"
+},
+{
+  "id": "54c",
+  "nome": "Agrolink - Milho",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/culturas/milho/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "MILHO"
+},
+{
+  "id": "54d",
+  "nome": "Agrolink - Bovinos",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/pecuaria/bovinos/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "54e",
+  "nome": "Agrolink - Aves",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/pecuaria/aves/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "AVICULTURA"
+},
+{
+  "id": "54f",
+  "nome": "Agrolink - Suínos",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/pecuaria/suinos/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "SUINOCULTURA"
+},
+{
+  "id": "54g",
+  "nome": "Agrolink - Pet",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.agrolink.com.br/pecuaria/caninos",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "RACOES_PET"
+},
   {
-    "id": "55",
-    "nome": "Money Times",
-    "tipo": "RSS",
-    "url_teste": "https://www.moneytimes.com.br/feed/",
-    "usar_puppeteer": false,
-    "layer": 3,
-    "theme": "ECONOMIA"
-  },
+  "id": "55a",
+  "nome": "Money Times - Últimas",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.moneytimes.com.br/ultimas-noticias/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "ECONOMIA"
+},
+{
+  "id": "55b",
+  "nome": "Money Times - Mercado",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.moneytimes.com.br/tag/giro-do-mercado/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "ECONOMIA"
+},
   {
     "id": "56",
     "nome": "Farmnews",
@@ -514,14 +685,59 @@
     "theme": "ECONOMIA"
   },
   {
-    "id": "58",
-    "nome": "Portal DBO",
-    "tipo": "RSS",
-    "url_teste": "https://www.portaldbo.com.br/feed/",
-    "usar_puppeteer": false,
-    "layer": 3,
-    "theme": "BOVINOCULTURA"
-  },
+  "id": "58a",
+  "nome": "Portal DBO - Mercado do Boi",
+  "tipo": "SCRAPING",
+  "url_teste": "https://portaldbo.com.br/conteudo/mercado-do-boi/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "58b",
+  "nome": "Portal DBO - Nutrição",
+  "tipo": "SCRAPING",
+  "url_teste": "https://portaldbo.com.br/conteudo/nutricao-suplementacao/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "RACOES_PET"
+},
+{
+  "id": "58c",
+  "nome": "Portal DBO - Saúde Animal",
+  "tipo": "SCRAPING",
+  "url_teste": "https://portaldbo.com.br/conteudo/saude-animal/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "58d",
+  "nome": "Portal DBO - Sustentabilidade",
+  "tipo": "SCRAPING",
+  "url_teste": "https://portaldbo.com.br/conteudo/sustentabilidade/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "RECICLAGEM"
+},
+{
+  "id": "58e",
+  "nome": "Portal DBO - Frigoríficos",
+  "tipo": "SCRAPING",
+  "url_teste": "https://portaldbo.com.br/conteudo/frigorificos/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "RECICLAGEM"
+},
+{
+  "id": "58f",
+  "nome": "Portal DBO - Agro",
+  "tipo": "SCRAPING",
+  "url_teste": "https://portaldbo.com.br/agro/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "NOTICIAS"
+},
   {
     "id": "59",
     "nome": "Suinocultura",
@@ -550,14 +766,41 @@
     "theme": "ECONOMIA"
   },
   {
-    "id": "62",
-    "nome": "Engormix",
-    "tipo": "SCRAPING",
-    "url_teste": "https://pt.engormix.com/",
-    "usar_puppeteer": true,
-    "layer": 3,
-    "theme": "ECONOMIA"
-  },
+  "id": "62a",
+  "nome": "Engormix - Avicultura",
+  "tipo": "SCRAPING",
+  "url_teste": "https://pt.engormix.com/avicultura/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "AVICULTURA"
+},
+{
+  "id": "62b",
+  "nome": "Engormix - Suinocultura",
+  "tipo": "SCRAPING",
+  "url_teste": "https://pt.engormix.com/suinocultura/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "SUINOCULTURA"
+},
+{
+  "id": "62c",
+  "nome": "Engormix - Pecuária de Corte",
+  "tipo": "SCRAPING",
+  "url_teste": "https://pt.engormix.com/pecuaria-corte/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "BOVINOCULTURA"
+},
+{
+  "id": "62d",
+  "nome": "Engormix - Micotoxinas",
+  "tipo": "SCRAPING",
+  "url_teste": "https://pt.engormix.com/micotoxinas/",
+  "usar_puppeteer": true,
+  "layer": 3,
+  "theme": "RACOES_PET"
+},
   {
     "id": "63",
     "nome": "Feed Food",
@@ -577,12 +820,39 @@
     "theme": "BIODIESEL"
   },
   {
-    "id": "65",
-    "nome": "Bloomberg",
-    "tipo": "SCRAPING",
-    "url_teste": "https://www.bloomberg.com/markets/commodities",
-    "usar_puppeteer": true,
-    "layer": 3,
-    "theme": "ECONOMIA"
-  }
+  "id": "65a",
+  "nome": "Bloomberg Línea - Agro",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.bloomberglinea.com.br/agro/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "NOTICIAS"
+},
+{
+  "id": "65b",
+  "nome": "Bloomberg Línea - Mercados",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.bloomberglinea.com.br/mercados/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "ECONOMIA"
+},
+{
+  "id": "65c",
+  "nome": "Bloomberg Línea - Negócios",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.bloomberglinea.com.br/negocios/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "ECONOMIA"
+},
+{
+  "id": "65d",
+  "nome": "Bloomberg Línea - ESG",
+  "tipo": "SCRAPING",
+  "url_teste": "https://www.bloomberglinea.com.br/esg/bloomberg-linea-green/",
+  "usar_puppeteer": false,
+  "layer": 3,
+  "theme": "RECICLAGEM"
+}
 ]

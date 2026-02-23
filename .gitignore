@@ -1,6 +1,5 @@
 node_modules/
-data/*.db
-.env
-*.log
-.next/
-*.tsbuildinfo
+data/
+.next/*.log
+scraper-engine/market-bi/aves/downloads/
+scraper-engine/market-bi/aves/logs/

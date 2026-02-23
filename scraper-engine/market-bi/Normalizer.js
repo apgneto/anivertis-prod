@@ -1,57 +1,69 @@
+// scraper-engine/market-bi/Normalizer.js
+
 class Normalizer {
   constructor(db) {
     this.db = db;
   }
 
-  static parseNumeric(valorBruto) {
-    if (typeof valorBruto === 'number') return valorBruto;
-    if (!valorBruto) return null;
+  parseNumeric(value) {
+    if (typeof value === 'number') return value;
 
-    const normalized = String(valorBruto)
-      .replace(/\s/g, '')
-      .replace(/\./g, '')
-      .replace(',', '.')
-      .match(/-?\d+(\.\d+)?/);
+    if (!value) return null;
 
-    return normalized ? Number(normalized[0]) : null;
-  }
+    // Remove espaços
+    let cleaned = String(value).trim();
 
-  async applyUnitConversion({ ativo_id, valor_bruto, unidade_origem, unidade_destino }) {
-    const valorNumerico = Normalizer.parseNumeric(valor_bruto);
-    if (valorNumerico === null) {
-      throw new Error(`Não foi possível normalizar valor bruto: ${valor_bruto}`);
+    // Detecta padrão brasileiro (1.234,56)
+    const hasCommaDecimal = cleaned.includes(',') && cleaned.lastIndexOf(',') > cleaned.lastIndexOf('.');
+
+    if (hasCommaDecimal) {
+      cleaned = cleaned.replace(/\./g, '').replace(',', '.');
+    } else {
+      cleaned = cleaned.replace(/,/g, '');
     }
 
-    const conversao = await this.db.get(
-      `SELECT fator_multiplicador, offset
-       FROM conversoes_unidade
-       WHERE ativo_id = ?
-         AND unidade_origem = ?
-         AND unidade_destino = ?
-       ORDER BY id DESC
-       LIMIT 1`,
-      [ativo_id, unidade_origem, unidade_destino]
-    );
+    const parsed = parseFloat(cleaned);
+    return isNaN(parsed) ? null : parsed;
+  }
 
-    if (!conversao) {
+  async applyUnitConversion(params) {
+    const {
+      ativo_id,
+      valor_bruto,
+      unidade_origem,
+      unidade_destino
+    } = params;
+
+    const valorNumerico = this.parseNumeric(valor_bruto);
+
+    if (valorNumerico == null) {
+      throw new Error(`Valor inválido para ${ativo_id}`);
+    }
+
+    // 🔥 BUSCA EXATA (ativo + origem + destino)
+    const conv = await this.db.get(`
+      SELECT fator_multiplicador
+      FROM conversoes_unidade
+      WHERE ativo_id = ?
+      AND unidade_origem = ?
+      AND unidade_destino = ?
+      LIMIT 1
+    `, [ativo_id, unidade_origem, unidade_destino]);
+
+    if (!conv) {
       throw new Error(
-        `Conversão de unidade não encontrada para ativo_id=${ativo_id}, ${unidade_origem} -> ${unidade_destino}`
+        `Conversão não encontrada para ${ativo_id}: ${unidade_origem} -> ${unidade_destino}`
       );
     }
 
-    const fator = Number(conversao.fator_multiplicador);
-    const offset = Number(conversao.offset || 0);
-    const valor_normalizado = valorNumerico * fator + offset;
+    const valorNormalizado = valorNumerico * conv.fator_multiplicador;
 
     return {
       ativo_id,
-      valor_bruto,
-      valor_numerico: valorNumerico,
+      valor_bruto: valorNumerico,
+      valor_normalizado: valorNormalizado,
       unidade_origem,
-      unidade_destino,
-      fator_multiplicador: fator,
-      offset,
-      valor_normalizado,
+      unidade_destino
     };
   }
 }

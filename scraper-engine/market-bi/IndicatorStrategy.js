@@ -1,82 +1,121 @@
-const puppeteer = require('puppeteer-extra');
-const StealthPlugin = require('puppeteer-extra-plugin-stealth');
+// market-bi/IndicatorStrategy.js
+// Usa puppeteer-real-browser (já instalado no projeto) em vez de puppeteer-extra.
+// Isso contorna o Cloudflare Turnstile do CEPEA sem precisar de proxy ou plugins externos.
 
-puppeteer.use(StealthPlugin());
+const { connect } = require('puppeteer-real-browser');
 
 class IndicatorStrategy {
   constructor(options = {}) {
     this.options = {
-      timeoutMs: 45000,
-      waitUntil: 'domcontentloaded',
-      ...options,
+      timeoutMs: 60000,
+      ...options
     };
   }
 
-  async extractFromCepea(url, selector) {
+  async extractPrice(url, config) {
+
+    // Modo manual: retorna valor fixo sem acessar a web (útil para testes)
+    if (config.extraction_mode === 'api_manual') {
+      return {
+        success: true,
+        valor_bruto: config.valor_manual,
+        raw_payload_debug: null,
+        coletado_em: new Date().toISOString()
+      };
+    }
+
     let browser;
-    let rawPayload = null;
 
     try {
-      browser = await puppeteer.launch({
-        headless: true,
-        args: [
-          '--no-sandbox',
-          '--disable-setuid-sandbox',
-          '--disable-dev-shm-usage',
-          '--disable-blink-features=AutomationControlled',
-        ],
+      // puppeteer-real-browser usa o Chrome instalado na máquina,
+      // eliminando os sinais de automação que o Turnstile detecta.
+      const { browser: b, page } = await connect({
+        headless: false,   // false é obrigatório para bypass do Turnstile
+        turnstile: true,   // tenta resolver o challenge automaticamente
+        args: ['--window-size=1920,1080']
+      });
+      browser = b;
+
+      await page.goto(url, {
+        waitUntil: 'domcontentloaded',
+        timeout: this.options.timeoutMs
       });
 
-      const page = await browser.newPage();
-      await page.setUserAgent(
-        'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36'
-      );
-      await page.setExtraHTTPHeaders({
-        'accept-language': 'pt-BR,pt;q=0.9,en-US;q=0.8,en;q=0.7',
-      });
-
-      const response = await page.goto(url, {
-        waitUntil: this.options.waitUntil,
-        timeout: this.options.timeoutMs,
-      });
-
-      rawPayload = await page.content();
-
-      if (!response || response.status() >= 400) {
-        const status = response ? response.status() : 'NO_RESPONSE';
-        const error = new Error(`Falha ao acessar indicador CEPEA. HTTP status: ${status}`);
-        error.raw_payload_debug = rawPayload;
-        throw error;
+      // Aguarda bypass do Cloudflare (até 25s)
+      for (let i = 0; i < 5; i++) {
+        const title = await page.title();
+        if (!title.toLowerCase().includes('just a moment')) break;
+        await new Promise(r => setTimeout(r, 5000));
       }
 
-      await page.waitForSelector(selector, { timeout: 10000 });
-      const indicatorData = await page.$eval(selector, (el) => {
-        const text = (el.textContent || '').trim();
-        return {
-          text,
-          html: el.outerHTML,
-        };
-      });
+      // Simulação humana leve para não acionar heurísticas de comportamento
+      await page.mouse.move(300, 300);
+      await new Promise(r => setTimeout(r, 1200));
+      await page.mouse.move(600, 400);
+      await new Promise(r => setTimeout(r, 1000));
+      await page.mouse.wheel({ deltaY: 300 });
+      await new Promise(r => setTimeout(r, 2000));
+
+      // Aguarda tabela carregar
+      await page.waitForSelector('table', { timeout: 30000 });
+
+      // Captura HTML para auditoria (raw_payload_debug)
+      const rawHtml = await page.content();
+
+      let priceText = null;
+
+      // ── Modo: seletor CSS direto (ex: CEPEA single cell) ────────────────
+      if (config.extraction_mode === 'single') {
+        priceText = await page.evaluate((selector) => {
+          const el = document.querySelector(selector);
+          if (!el) return null;
+          return (el.getAttribute('value') || el.innerText || el.textContent || '').trim();
+        }, config.selector);
+      }
+
+      // ── Modo: busca por texto em tabela ──────────────────────────────────
+      if (config.extraction_mode === 'table_filter') {
+        priceText = await page.evaluate(
+          ({ tableMatchText, rowMatchText, columnIndex }) => {
+            const tables = Array.from(document.querySelectorAll('table'));
+            const targetTable = tables.find(t =>
+              t.innerText.includes(tableMatchText)
+            );
+            if (!targetTable) return null;
+
+            const rows = Array.from(targetTable.querySelectorAll('tr'));
+            const targetRow = rows.find(r =>
+              r.innerText.includes(rowMatchText)
+            );
+            if (!targetRow) return null;
+
+            const cell = targetRow.querySelector(`td:nth-child(${columnIndex})`);
+            return cell ? cell.innerText.trim() : null;
+          },
+          config
+        );
+      }
+
+      if (!priceText) {
+        throw new Error(`Valor não encontrado para ${config.ativo_id} — verifique o selector/tableMatchText/rowMatchText`);
+      }
 
       return {
         success: true,
-        url,
-        valor_bruto: indicatorData.text,
-        raw_payload_debug: rawPayload,
-        evidencia_html: indicatorData.html,
-        coletado_em: new Date().toISOString(),
+        valor_bruto: priceText,
+        raw_payload_debug: rawHtml.substring(0, 5000), // primeiros 5KB para auditoria
+        coletado_em: new Date().toISOString()
       };
+
     } catch (error) {
       return {
         success: false,
-        url,
         error: error.message,
-        raw_payload_debug: error.raw_payload_debug || rawPayload,
-        coletado_em: new Date().toISOString(),
+        raw_payload_debug: null
       };
     } finally {
       if (browser) {
-        await browser.close();
+        try { await browser.close(); } catch (_) {}
       }
     }
   }

@@ -24,7 +24,6 @@ function gerarHash(payload) {
 
 function salvarPreco(dataReferencia, valorBruto, valorNormalizado) {
   return new Promise((resolve, reject) => {
-    // 1. Garante que a pasta existe
     const dirPath = path.dirname(dbPath);
     if (!fs.existsSync(dirPath)) {
       fs.mkdirSync(dirPath, { recursive: true });
@@ -35,35 +34,35 @@ function salvarPreco(dataReferencia, valorBruto, valorNormalizado) {
     });
 
     db.serialize(() => {
-      // 2. Cria a tabela base se não existir
       db.run(`
         CREATE TABLE IF NOT EXISTS market_bi_precos (
           id INTEGER PRIMARY KEY AUTOINCREMENT,
           ativo_id TEXT NOT NULL,
           valor_bruto TEXT NOT NULL,
           valor_normalizado REAL NOT NULL,
-          collected_at DATETIME DEFAULT CURRENT_TIMESTAMP
+          collected_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+          criado_em DATETIME DEFAULT CURRENT_TIMESTAMP
         )
       `);
 
-      // 3. AUTO-MIGRAÇÃO: Tenta adicionar todas as colunas necessárias.
-      // Se a coluna já existir, o SQLite retorna erro, mas nós o ignoramos no callback (() => {})
-      // para que o script continue rodando. Isso "conserta" tabelas antigas.
+      // 🚀 A CORREÇÃO: Removido o 'DEFAULT CURRENT_TIMESTAMP' destas duas últimas 
+      // para o SQLite não barrar a auto-migração silenciosa.
       const colunasParaAdicionar = [
         'ALTER TABLE market_bi_precos ADD COLUMN tier INTEGER DEFAULT 1',
         'ALTER TABLE market_bi_precos ADD COLUMN unidade_origem TEXT',
         'ALTER TABLE market_bi_precos ADD COLUMN unidade_destino TEXT',
         'ALTER TABLE market_bi_precos ADD COLUMN fonte TEXT',
         'ALTER TABLE market_bi_precos ADD COLUMN data_referencia DATE',
-        'ALTER TABLE market_bi_precos ADD COLUMN data_publicacao DATE', // <--- A QUE FALTAVA
-        'ALTER TABLE market_bi_precos ADD COLUMN integridade_hash_sha256 TEXT'
+        'ALTER TABLE market_bi_precos ADD COLUMN data_publicacao DATE',
+        'ALTER TABLE market_bi_precos ADD COLUMN integridade_hash_sha256 TEXT',
+        'ALTER TABLE market_bi_precos ADD COLUMN collected_at DATETIME', 
+        'ALTER TABLE market_bi_precos ADD COLUMN criado_em DATETIME'
       ];
 
       colunasParaAdicionar.forEach(cmd => {
         db.run(cmd, () => {}); 
       });
 
-      // 4. Insere o dado
       const payload = JSON.stringify({
         ativo_id: ATIVO.ativo_id,
         valor_bruto: valorBruto.toString(),
@@ -77,8 +76,8 @@ function salvarPreco(dataReferencia, valorBruto, valorNormalizado) {
         INSERT OR IGNORE INTO market_bi_precos (
           ativo_id, valor_bruto, valor_normalizado, unidade_origem, 
           unidade_destino, fonte, tier, integridade_hash_sha256, 
-          data_referencia, data_publicacao, collected_at
-        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP)
+          data_referencia, data_publicacao, collected_at, criado_em
+        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, CURRENT_TIMESTAMP, CURRENT_TIMESTAMP)
       `, [
         ATIVO.ativo_id, valorBruto.toString(), valorNormalizado, 
         ATIVO.unidade_origem, ATIVO.unidade_destino, ATIVO.fonte, 
@@ -119,10 +118,7 @@ async function consultarComexStat() {
         monthDetail: true,
         period: { from: periodoInicio, to: periodoFim },
         filters: [
-          { 
-            filter: 'ncm', 
-            values: ['02071100', '02071200', '02071300', '02071400'] 
-          }
+          { filter: 'ncm', values: ['02071100', '02071200', '02071300', '02071400'] }
         ],
         details: [], 
         metrics: ['metricFOB']
@@ -136,9 +132,7 @@ async function consultarComexStat() {
     
     const lista = response.data?.data?.list || response.data?.data || [];
 
-    if (!lista || lista.length === 0) {
-      throw new Error('Lista vazia na resposta');
-    }
+    if (!lista || lista.length === 0) throw new Error('Lista vazia na resposta');
 
     const agrupadoPorMes = {};
 
@@ -178,7 +172,7 @@ async function consultarComexStat() {
 
 async function run() {
   console.log('='.repeat(50));
-  console.log('🐔 AvesScraperSecex - Salvando no Banco de Dados (Auto-Migração)');
+  console.log('🐔 AvesScraperSecex - Salvando no Banco de Dados (Auto-Migração Corrigida)');
   console.log('='.repeat(50));
   try {
     const { valorFOB, dataReferencia } = await consultarComexStat();

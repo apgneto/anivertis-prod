@@ -32,8 +32,10 @@ async function scrapeSuinosCepea() {
       if (!/just a moment|attention required|cloudflare/i.test(title)) break;
       await new Promise((r) => setTimeout(r, 5000));
     }
+    // Aguarda tabela renderizar após bypass Cloudflare
+    await new Promise((r) => setTimeout(r, 8000));
     const seletor = '#imagenet-indicador1 tr:nth-child(2) td:nth-child(2)';
-    await page.waitForSelector(seletor, { timeout: 60000 });
+    await page.waitForSelector(seletor, { timeout: 30000 });
     const valorBruto = await page.$eval(seletor, (el) => (el.textContent || '').trim());
     const valor = parseNumeroBr(valorBruto);
     if (valor === null) throw new Error(`Valor inválido para ${ATIVO.ativo_id}`);

@@ -50,17 +50,18 @@ function salvarPreco(dataReferencia, valorBruto, valorNormalizado, rawPayload) {
     });
 }
 
-// CORREÇÃO: Delay de ~2 meses na disponibilidade dos dados COMEXSTAT
 function ultimos24Meses() {
     const to = new Date();
-    to.setMonth(to.getMonth() - 2); // dados têm delay de ~2 meses
+    to.setMonth(to.getMonth() - 2);
     const from = new Date(to.getFullYear(), to.getMonth() - 23, 1);
     const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
     return { from: fmt(from), to: fmt(to) };
 }
 
 function parseRows(data) {
-    const rows = Array.isArray(data?.data) ? data.data : (Array.isArray(data) ? data : []);
+    const rows = Array.isArray(data?.data?.list) ? data.data.list :
+                 Array.isArray(data?.data) ? data.data :
+                 (Array.isArray(data) ? data : []);
     return rows.map((r) => ({
         data: (r.year && r.monthNumber) ? `${r.year}${String(r.monthNumber).padStart(2,'0')}` : null,
         valor: Number(r.metricFOB || r.vl_fob || r.value || 0)
@@ -70,7 +71,6 @@ function parseRows(data) {
 async function scrapeSuinosSecex() {
     const period = ultimos24Meses();
     
-    // CORREÇÃO: NCMs com 8 dígitos conforme tabela NCM da API
     const body = {
         flow: 'export',
         monthDetail: true,

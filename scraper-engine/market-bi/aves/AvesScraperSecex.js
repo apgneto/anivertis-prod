@@ -86,22 +86,17 @@ function salvarPreco(dataReferencia, valorBruto, valorNormalizado) {
     });
 }
 
+// ✅ CORREÇÃO: Delay de ~2 meses na disponibilidade dos dados COMEXSTAT
+function ultimos24Meses() {
+    const to = new Date();
+    to.setMonth(to.getMonth() - 2); // dados têm delay de ~2 meses
+    const from = new Date(to.getFullYear(), to.getMonth() - 23, 1);
+    const fmt = (d) => `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, '0')}`;
+    return { from: fmt(from), to: fmt(to) };
+}
+
 async function consultarComexStat() {
-    // CORREÇÃO: Delay de ~2 meses na disponibilidade dos dados COMEXSTAT
-    const hoje = new Date();
-    hoje.setMonth(hoje.getMonth() - 2); // dados têm delay de ~2 meses
-    const anoReal = hoje.getFullYear();
-    const mesReal = hoje.getMonth() + 1;
-    
-    const periodos = [];
-    for (let i = 2; i <= 25; i++) {
-        let ano = anoReal;
-        let mes = mesReal - i;
-        while (mes <= 0) { mes += 12; ano -= 1; }
-        periodos.push(`${ano}-${String(mes).padStart(2, '0')}`);
-    }
-    const periodoInicio = periodos[periodos.length - 1];
-    const periodoFim = periodos[0];
+    const period = ultimos24Meses();
     
     try {
         const response = await axios.post(
@@ -109,11 +104,11 @@ async function consultarComexStat() {
             {
                 flow: 'export',
                 monthDetail: true,
-                period: { from: periodoInicio, to: periodoFim },
+                period: { from: period.from, to: period.to },
                 filters: [
                     { filter: 'ncm', values: ['02071100', '02071200', '02071300', '02071400'] }
                 ],
-                details: [],
+                details: ['ncm'],
                 metrics: ['metricFOB']
             },
             {
